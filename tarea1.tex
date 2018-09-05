@@ -2,6 +2,8 @@
 
 \documentclass{article}
 \usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{cancel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -44,17 +46,69 @@
 	}
 
 	% Ejercicio 4
-   \item {
-   Usar integrales dobles para calcular el área de una elipse con semiejes $a$ y $b$.\\
+    \item {
+        Usar integrales dobles para calcular el área de una elipse con semiejes $a$ y $b$.
 
+        Supongamos, sin perder la generalidad, que $a\geq b$. La ecuación canónica de la elipse horizontal cuyo centro está en el origen del plano y tiene semiejes $a$ y $b$ es
+        \[
+            \frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+        \]
+        Equivalentemente, podemos afirmar entonces que
+        \(\displaystyle
+            y=\frac{\pm\sqrt{a^2 b^2 -b^2 x^2}}{a}
+        \)
+        describe nuestro lugar geométrico. Por simplieza, y aprovechando su simetría con los ejes $X$ e $Y$, dividimos la elipse en 4 regiones iguales delimitadas por los ejes coordenados y únicamente calcularemos el área de una de ellas, llámese $R$, al final, el área total se obtendrá de multiplicar el área de dicha región por 4.
+        \begin{center}
+            \includegraphics[width=6cm]{img/ej4.png}
+        \end{center}
+        $R$ es una región $y-$simple, por lo que
+        \(\displaystyle
+            R=\left\{
+                (x,y)\,\bigg\vert\,
+                0\leq x\leq a;
+                0\leq y\leq\frac{\sqrt{a^2b^2-b^2x^2}}{a}
+            \right\}
+        \)
+        , entonces el área de $R$ está dada por
+        \[
+            \iint_R{dA}
+            =\int_0^a{\int_0^{ \frac{\sqrt{a^2b^2-b^2x^2}}{a} }{dy}\,dx}
+            =\int_0^a{\frac{1}{a}\sqrt{a^2b^2-b^2x^2}\,dx}
+            =\frac{b}{a}\int_0^a{\sqrt{a^2-x^2}\,dx}
+        \]
+        Haciendo la sustitución $x=a \sen{\theta}$ con $0\leq\theta\leq\frac{\pi}{2}$, tenemos que $dx=a\cos{\theta}\,d\theta$; para los límites de la integral, si $x=0=a\sen{\theta}$ entonces $\theta=0$ y si $x=a=a\sen{\theta}$, entonces $\theta=\frac{\pi}{2}$. La integral queda como
+        \[
+            \frac{b}{\cancel{a}}\int_0^{\frac{\pi}{2}}{
+                \sqrt{a^2-a^2\sen^2{\theta}}\,\cancel{a}\cos{\theta}\,d\theta
+            }
+            =b\int_0^{\frac{\pi}{2}}{
+                \sqrt{a^2(1-\sen^2{\theta})}\cos{\theta}\,d\theta
+            }
+            =ab\int_0^{\frac{\pi}{2}}{
+                \cos^2{\theta}\,d\theta
+            }
+        \]
+        Usando la fórmula del ángulo doble para el coseno tenemos
+        \[
+            =ab\int_0^\frac{\pi}{2}{
+                \frac{1}{2}(1+\cos{(2\theta)})
+            \,d\theta}
+            =\frac{ab}{2}\left[
+                \theta + \frac{1}{2}\sen{(2\theta)}
+            \right]_0^\frac{\pi}{2}
+            =\frac{ab}{2}\left[
+                \frac{\pi}{2}+0
+            \right]
+            =\frac{\pi ab}{4}
+        \]
+        Por lo tanto, el área de la elipse es 4 veces lo anterior, es decir $A=\pi ab$
 	}
 
 	% Ejercicio 5
-   \item {
-   Mostrar que al evaluar $\iint_DdA$, donde $D$ es una región $y$-simple, se reproduce la fórmula del cálculo de una variable para el área entre dos curvas.\\
+    \item {
+        Mostrar que al evaluar $\iint_DdA$, donde $D$ es una región $y$-simple, se reproduce la fórmula del cálculo de una variable para el área entre dos curvas.
 
-	
-
+        
     }
 
 	% Ejercicio 6
