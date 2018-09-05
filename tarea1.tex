@@ -108,7 +108,32 @@
     \item {
         Mostrar que al evaluar $\iint_DdA$, donde $D$ es una región $y$-simple, se reproduce la fórmula del cálculo de una variable para el área entre dos curvas.
 
-        
+        Sea $D$ una región $y-$simple, entonces de define como
+        \(
+            D=\left\{
+                (x,y)\,\bigg\vert\, a\leq x\leq b;\;
+                \varphi_1(x)\leq y\leq\varphi_2(x)
+            \right\}
+        \)
+        para algunos $a,b\in\mathbb{R}$ y $\varphi_1(x):\mathbb{R}\rightarrow\mathbb{R}$, $\varphi_2(x):\mathbb{R}\rightarrow\mathbb{R}$. Entonces
+        \[
+            \iint_D{dA}
+            =\int_a^b{
+                \int_{\varphi_1(x)}^{\varphi_2(x)}{dy}
+            \,dx}
+        \]
+        por el Teorema de Fubini
+        \[
+            =\int_a^b{
+                \left[ y \right]_{\varphi_1(x)}^{\varphi_2(x)}
+            \,dx}
+            =\int_a^b{
+                \left[ \varphi_2(x) - \varphi_1(x) \right]
+            \,dx}
+            =\int_a^b{\varphi_2(x)\,dx}
+            -\int_a^b{\varphi_1(x)\,dx}
+        \]
+        que es como se calcula el área comprendida entre las curvas $\varphi_1(x)$ y $\varphi_2(x)$ en el intervalo $[a,b]$.
     }
 
 	% Ejercicio 6
