@@ -137,10 +137,70 @@
     }
 
 	% Ejercicio 6
-   \item {
-   Describir la región que se encuentra entre el cono $z = \sqrt{x^2 + y^2}$ como una región elemental.\\
+    \item {
+        Describir la región que se encuentra entre el cono $z = \sqrt{x^2 + y^2}$ y el paraboloide $z=x^2+y^2$ como una región elemental.
 
-	
+        Se puede cracterizar como una región de tipo III. Proyectando las gráficas al plano $yz$ tenemos
+        \begin{center}
+            \includegraphics[width=6cm]{img/ej6.png}
+        \end{center}
+        Como estamos en el plano $yz$, entonces $x=0$ y las ecuaciones se convertirían en
+        \begin{eqnarray*}
+            z=y\\
+            z=y^2
+        \end{eqnarray*}
+        Al igualar ambas ecuaciones encontraremos sus intersecciones
+        \begin{eqnarray*}
+            y=y^2\\
+            \therefore \{y=0, y=1\}
+        \end{eqnarray*}
+        Y si de las ecuaciones originales despejamos la $x$ nos quedaría
+        \begin{eqnarray*}
+            x=\sqrt{z^2-y^2}\\
+            x=\sqrt{x-y^2}
+        \end{eqnarray*}
+        Por lo que la descripción de la región, por lo menos en el primer octante, queda como
+        \[
+            R_1=\left\{
+                    (x,y,z)\,\big\vert\,
+                    \sqrt{z-y^2}\leq x\leq\sqrt{z^2-y^2};\,
+                    0\leq y\leq 1;\,
+                    y^2\leq z\leq y
+                \right\}
+        \]
+        Debido a las simetrías que presentan ambas gráficas con los planos $xz$ e $yz$, encontrar la descripción en los octantes restanes debe ser sencillo.
+
+        Para el segundo octante el comportamento en $y$ y en $z$ es idéntico, sólo reflejamos en $x$
+        \[
+            R_2=\left\{
+                    (x,y,z)\,\big\vert\,
+                    -\sqrt{z^2-y^2}\leq x\leq-\sqrt{z-y^2};\,
+                    0\leq y\leq 1;\,
+                    y^2\leq z\leq y
+                \right\}
+        \]
+        Para el tercer octante reflejamos $x$ y reflejamos $y$ (con respecto a $R_1$)
+        \[
+            R_3=\left\{
+                    (x,y,z)\,\big\vert\,
+                    -\sqrt{z^2-y^2}\leq x\leq-\sqrt{z-y^2};\,
+                    -1\leq y\leq 0;\,
+                    y^2\leq z\leq y
+                \right\}
+        \]
+        Y para el cuarto octante sólo reflejamos $y$ (de nuevo, es con respecto a $R_1$)
+        \[
+            R_4=\left\{
+                    (x,y,z)\,\big\vert\,
+                    \sqrt{z-y^2}\leq x\leq\sqrt{z^2-y^2};\,
+                    -1\leq y\leq 0;\,
+                    y^2\leq z\leq y
+                \right\}
+        \]
+        Al final, la región comprendida entre ambas superficies es la unión de estas 4 regiones (pues no existe la gráfica en los octantes 5, 6, 7, u 8).
+        \[
+            R=\bigcup_{i=1}^4{R_i}
+        \]
     }
     
     % Ejercicio 7
