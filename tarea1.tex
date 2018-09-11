@@ -1,8 +1,10 @@
 % ====== TAREA 1 MATEMATICAS APLICADAS ======
 
 \documentclass{article}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -132,19 +134,106 @@
    \item {
    Hallar el volumen acotado por el paraboloide $z = 2x^2 + y^2$ y el cilindro $z = 4 - y^2$\\
 
+		Para calcular el volumen tendríamos $\iiint_W dV$.\\
+		
+		Primero veamos la intersección de las dos superficies como: $4-y^2 = 2x^2 + y^2 \Rightarrow x^2+y^2 = 2$\\
 
+		La intersección del paraboloide y el cilindro se ve :
+		\includegraphics[width=7cm]{ejercicio7.png}\\
+		
+		La proyección del volumen en el plano xy se ve como:
+		\includegraphics[width=7cm]{ejercicio71.png}\\
+		
+		De ahí, caracterizamos el volumen como: $\int_{-\sqrt{2}}^{\sqrt{2}}\int_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}}\int_{2x^2+y^2}^{4-y^2}dzdydx$
+	
+		Resolviendo la integral triple tenemos:\\
+		$\int_{2x^2+y^2}^{4-y^2}dz = z\Bigm|_{2x^2+y^2}^{4-y^2} = 4-y^2-2x^2-y^2 = -2y^2-2x^2+4 $\\
+		
+		$\int_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} (-2y^2-2x^2+4)dy = \int_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} (-2y^2)dy +  \int_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} (-2x^2)dy + \int_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} (4)dy $\\
+		$\int_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} (-2y^2-2x^2+4)dy = (-\frac{2}{3}y^3)\Bigm|_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} + (-2x^2y)\Bigm|_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} + (4y)\Bigm|_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}}$\\
+		$\int_{-\sqrt{2-x^2}}^{\sqrt{2-x^2}} (-2y^2-2x^2+4)dy = -\frac{4(\sqrt{2-x^2})^3}{3} -4x^2\sqrt{2-x^2} + 8\sqrt{2-x^2} $\\
+		
+		$\int_{-\sqrt{2}}^{\sqrt{2}}(-\frac{4(\sqrt{2-x^2})^3}{3} -4x^2\sqrt{2-x^2} + 8\sqrt{2-x^2})dx = \int_{-\sqrt{2}}^{\sqrt{2}}(-\frac{4(\sqrt{2-x^2})^3}{3})dx + \int_{-\sqrt{2}}^{\sqrt{2}}(-4x^2\sqrt{2-x^2})dx+ \int_{-\sqrt{2}}^{\sqrt{2}}(8\sqrt{2-x^2})dx $\\
+		
+		$\int_{-\sqrt{2}}^{\sqrt{2}}(-\frac{4(\sqrt{2-x^2})^3}{3})dx = \frac{4}{3}\int_{-\sqrt{2}}^{\sqrt{2}}(2-x^2)^{-\frac{3}{2}} dx$\\
+		Usando integración por sustitución $z = \frac{u}{2}$:		
+		$= \frac{4}{3}\bullet\frac{1}{16}\int(8-u^2)^{-\frac{3}{2}} du $\\
+		Usando integración por partes: $u = (8-u^2)^{-\frac{3}{2}} , dv = 1$:
+		$\frac{4}{3}\bullet\frac{1}{16}(u)(8-u^2)^{-\frac{3}{2}} + \int3u^2\sqrt{8-u^2}du$\\
+		Usando integración por sustitución $u = 2\sqrt{2}\sin(m)$ $\int3u^2\sqrt{8-u^2}du = 3 \bullet 16\sqrt{2} \int \sin^2(m)\cos(m)\sqrt{8-8\sin^2(m)}$\\
+		Simplificando y regresando la u:$\int3u^2\sqrt{8-u^2}du = -24(\arcsin(\frac{1}{2\sqrt{2}}u) - \frac{1}{4}\sin(4\arcsin(\frac{1}{2\sqrt{2}}u)))$\\
+		De ahí, $\frac{4}{3}\bullet\frac{1}{16}\int(8-u^2)^{-\frac{3}{2}} du = \frac{4}{3}\bullet\frac{1}{16}(u)(8-u^2)^{-\frac{3}{2}} -24(\arcsin(\frac{1}{2\sqrt{2}}u) - \frac{1}{4}\sin(4\arcsin(\frac{1}{2\sqrt{2}}u)))$\\
+		Regresando la u, $\int_{-\sqrt{2}}^{\sqrt{2}}(-\frac{4(\sqrt{2-x^2})^3}{3})dx = (-\frac{2}{3}(2x(-x^2 +2)^{\frac{3}{2}}) + 3(\arcsin(\frac{1}{\sqrt{2}}x) - \frac{\sin(4\arcsin(\frac{1}{\sqrt{2}}x))}{4}))\Bigm|_{-\sqrt{2}}^{\sqrt{2}} = -2\pi$\\
+		
+		$\int_{-\sqrt{2}}^{\sqrt{2}}(-4x^2\sqrt{2-x^2})dx = -4\int_{-\sqrt{2}}^{\sqrt{2}}(x^2\sqrt{2-x^2})dx$\\
+		Usando integración trigonométrica: $x = \sqrt{2}\sin(u)$\\
+		$\int_{-\sqrt{2}}^{\sqrt{2}}(-4x^2\sqrt{2-x^2})dx = -2(\arcsin(\frac{1}{\sqrt{2}}x) - \frac{1}{4}\sin(4\arcsin(\frac{1}{\sqrt{2}}x)))\Bigm|_{-\sqrt{2}}^{\sqrt{2}} = -2\pi$\\
+		
+		$\int_{-\sqrt{2}}^{\sqrt{2}}(8\sqrt{2-x^2})dx = -8\int_{-\sqrt{2}}^{\sqrt{2}}(\sqrt{2-x^2})dx$\\
+		Usando integración trigonométrica: $x = \sqrt{2}\sin(u)$\\
+		$int_{-\sqrt{2}}^{\sqrt{2}}(8\sqrt{2-x^2})dx = 8(\arcsin(\frac{1}{\sqrt{2}}x)+- \frac{1}{2}\sin(2\arcsin(\frac{1}{\sqrt{2}}x)))\Bigm|_{-\sqrt{2}}^{\sqrt{2}} = 8\pi$\\
+		
+		
+		$\int_{-\sqrt{2}}^{\sqrt{2}}(-\frac{4(\sqrt{2-x^2})^3}{3} -4x^2\sqrt{2-x^2} + 8\sqrt{2-x^2})dx = -2\pi -2\pi + 8\pi = 4\pi$\\
+		
+		El volúmen es de $4\pi $\\
+		
     }
 
     % Ejercicio 8
    \item {
     \begin{enumerate}
 	\item
-	Investigar qué es el centro de masa de un cuerpo y cómo se puede calcular usando integrales múltiples.\\
+	Investigar qué es el centro de masa de un cuerpo y cómo se puede calcular usando integrales múltiples.\\	
+	
+	El centro de masa es una posición definida en relación a un objeto o a un sistema de objetos. Es el promedio de la posición de todas las partes del sistema, ponderadas de acuerdo a sus masas.\\
+	
+	Denotamos por $d : \mathbb{R}^3 \rightarrow \mathbb{R}^+$ (continua) la densidad del sólido S.\\
+	
+	La masa viene dada por:	$m = \iint_S d(x,y,z)dxdydz$\\
+	
+	Los momentums respecto de los planos coordenados se definen como:\\
+	$M_{xy} = \iint_S zd(x,y,z)dxdydz$\\
+	$M_{xz} = \iint_S yd(x,y,z)dxdydz$\\
+	$M_{yz} = \iint_S xd(x,y,z)dxdydz$\\
+	
+	El centro de masa es : $\Big(\frac{M_{yz}}{m},\frac{M_{xz}}{m},\frac{M_{xy}}{m} \Big)$\\
+	
+	De ahí, que podamos obtener el centro de masa utilizando integrales múltiples.\\	
+	
+	\item    
+	La densidad en un punto $P$ de un cubo sólido de lado $a$ es directamente proporcional al cuadrado de la distancia del punto $P$ a una esquina fija del cubo. Encontrar el centro de masa.\\    
 
+Sea $P = (x,y,z)$ y la esquina fija sea el origen. Podemos usar esta función de densidad para encontrar la masa del cubo:\\
+$\rho(x,y,z) = k(x^2 + y^2 + z^2)$\\
+Debido a la simetria de la región, cualquier orden de integración producirá una integral de misma dificultad.\\
 
-	\item
-	La densidad en un punto $P$ de un cubo sólido de lado $a$ es directamente proporcional al cuadrado de la distancia del punto $P$ a una esquina fija del cubo. Encontrar el centro de masa.\\
+\begin{flalign*}
+m &= \int_0^a \int_0^a \int_0^ak(x^2 + y^2 + z^2)dzdydx&\\
+  &= k\int_0^a \int_0^a \Big[(x^2 + y^2)z + \frac{z^3}{3}\Big]\Big|_{0}^{a}dydz&\\
+  &= k\int_0^a \int_0^a \Big(ax^2 + ay^2 + \frac{a^3}{3}\Big) dydx&\\
+  &= k\int_0^a \Big[\Big(ax^2 + \frac{a^3}{3}\Big)y + \frac{a^3}{3}y\Big]\Big|_{0}^{a}dx&\\
+  &= k\int_0^a \Big(a^2x^2 + \frac{2a^4}{3}\Big)dx&\\
+  &= k \Big[\frac{a^2x^3}{3} + \frac{2a^4x}{3}\Big]\Big|_{0}^{a}&\\
+  &= k \Big[\frac{a^5}{3} + \frac{2a^5}{3}\Big]&\\
+  &= k a^5&
+\end{flalign*}    
 
+El primer momentum sobre el plano yz es:
+\begin{flalign*}
+M_{yz} &= k \int_0^a\int_0^a\int_0^a x(x^2 + y^2 + z^2)dzdydx&\\
+&= k\int_0^ax\Big[\int_0^a\int_0^a(x^2 + y^2 + z^2)dzdy\Big]dx&
+\end{flalign*}   
+Notemos que la x puede ser sacada como constante fuera de las dos integrales internas, debido a que es constante con respecto a $y$ y $z$. Después de factorizar, las dos integrales internas son la misma para la masa $m$.\\
+De ahí tenemos:
+\begin{flalign*}
+M_{yz} &= k \int_0^a x\Big(a^2x^2 + \frac{2a^4}{3}\Big)dx&\\
+&= k\Big[\frac{a^2x^4}{4} + \frac{a^4x^2}{3}\Big]\Big|_{0}^{a}&\\
+&= \frac{7}{12}a^6k&
+\end{flalign*}
+Así, $\vec{x} = \frac{M_{yz}}{m} = \frac{7a^6k/12}{a^5k}$\\
+Finalmente, de la naturaleza de $\rho$ y la simetría de $x, y, z$ en este cubo sólido, se tiene $\vec{x} = \vec{y} = \vec{z}$, y el centro de masa es de $(\frac{7}{12}a, \frac{7}{12}a, \frac{7}{12}a)$
+    
     \end{enumerate}
     }
 
