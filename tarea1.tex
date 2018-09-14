@@ -35,8 +35,36 @@
         como integrales iteradas.
 
         \color{azul}
+				La región morada es el plano $x + 2y + 3z = 6$, la roja el plano
+				$x = 0$, la azul $z = 0$ y la verde $y = 0$.
+
+				\begin{center}
+            \includegraphics[width=6cm]{img/ej1.png}
+        \end{center}
+
+				Tomemos por ejemplo la triple integral en la que primero se integra sobre la
+				variable $x$, luego sobre $y$ y al final sobre $z$.\\
+				En general, tenemos que los límites que se obtienen despejando la
+				variable de $x + 2y + 3z = 6$ son positivos y como el otro límite es 0,
+				entonces podemos saber cuál es el límite superior y cual es el inferior.
+
+				Para la primera integral, hay definir los límites despejando $x$ de las
+				superficies que limitan la región.\\
+				Es decir $x = 0$ y $x + 2y + 3z = 6 \implies x = 6 - 2y - 3z$.
+				\[\int_{0}^{6-2y-3z} dx\]
+				Después, hay que hacer lo mismo con la variable $y$, suponiendo a $x$
+				como nula, pues ya se ha integrado, es decir $y = 0$ y
+				$6 = 0 + 2y + 3z \implies y = 3- \frac{3}{2}dz$.
+				\[\int_{0}^{3-\frac{3}{2}z} dy\]
+				Finalmente, hay que hacer lo mismo para $z$, esto es $z = 0$ y
+				$6 = 0 + 0 + 3z \implies z = 2$.
+				\[\int_{0}^{2} dz\]
+				Entonces, la primera triple integral sería
+				\[\int_{0}^{2} \int_{0}^{3-\frac{3}{2}z} \int_{0}^{6-2y-3z} dxdydz\]
+				Análogamente, cambiando el orden de integración de las variables, se
+				obtienen las demás posibles integrales triples.
+				Estas son
         \begin{align*}
-            &\int_{0}^{2} \int_{0}^{3-\frac{3}{2}z} \int_{0}^{6-2y-3z} dxdydz\\
             &\int_{0}^{3} \int_{0}^{2-\frac{2}{3}y} \int_{0}^{6-2y-3z} dxdzdy\\
             &\int_{0}^{2} \int_{0}^{6-3z} \int_{0}^{3-\frac{x+3z}{2}} dydxdz\\
             &\int_{0}^{6} \int_{0}^{2-\frac{x}{3}} \int_{0}^{3-\frac{x+3z}{2}} dydzdx\\
@@ -55,6 +83,14 @@
         Calcular su volumen.
 
         \color{azul}
+
+				El dibujo de la región sería la superposición de las regiones en el
+				intervalo en $z$ de 0 a 1.
+				\begin{center}
+            \includegraphics[width=6cm]{img/ej2_1.png}
+						\includegraphics[width=6cm]{img/ej2_2.png}
+        \end{center}
+
         \begin{align*}
             \int_{0}^{1} \int_{z^3}^{\sqrt{z}} \int_{0}^{4-x} dydxdz
                 &= \int_{0}^{1} \int_{z^3}^{\sqrt{z}} y \Big|_{0}^{4-x} dxdz
