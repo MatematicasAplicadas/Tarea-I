@@ -35,8 +35,36 @@
         como integrales iteradas.
 
         \color{azul}
+				La región morada es el plano $x + 2y + 3z = 6$, la roja el plano
+				$x = 0$, la azul $z = 0$ y la verde $y = 0$.
+
+				\begin{center}
+            \includegraphics[width=6cm]{img/ej1.png}
+        \end{center}
+
+				Tomemos por ejemplo la triple integral en la que primero se integra sobre la
+				variable $x$, luego sobre $y$ y al final sobre $z$.\\
+				En general, tenemos que los límites que se obtienen despejando la
+				variable de $x + 2y + 3z = 6$ son positivos y como el otro límite es 0,
+				entonces podemos saber cuál es el límite superior y cual es el inferior.
+
+				Para la primera integral, hay definir los límites despejando $x$ de las
+				superficies que limitan la región.\\
+				Es decir $x = 0$ y $x + 2y + 3z = 6 \implies x = 6 - 2y - 3z$.
+				\[\int_{0}^{6-2y-3z} dx\]
+				Después, hay que hacer lo mismo con la variable $y$, suponiendo a $x$
+				como nula, pues ya se ha integrado, es decir $y = 0$ y
+				$6 = 0 + 2y + 3z \implies y = 3- \frac{3}{2}dz$.
+				\[\int_{0}^{3-\frac{3}{2}z} dy\]
+				Finalmente, hay que hacer lo mismo para $z$, esto es $z = 0$ y
+				$6 = 0 + 0 + 3z \implies z = 2$.
+				\[\int_{0}^{2} dz\]
+				Entonces, la primera triple integral sería
+				\[\int_{0}^{2} \int_{0}^{3-\frac{3}{2}z} \int_{0}^{6-2y-3z} dxdydz\]
+				Análogamente, cambiando el orden de integración de las variables, se
+				obtienen las demás posibles integrales triples.
+				Estas son
         \begin{align*}
-            &\int_{0}^{2} \int_{0}^{3-\frac{3}{2}z} \int_{0}^{6-2y-3z} dxdydz\\
             &\int_{0}^{3} \int_{0}^{2-\frac{2}{3}y} \int_{0}^{6-2y-3z} dxdzdy\\
             &\int_{0}^{2} \int_{0}^{6-3z} \int_{0}^{3-\frac{x+3z}{2}} dydxdz\\
             &\int_{0}^{6} \int_{0}^{2-\frac{x}{3}} \int_{0}^{3-\frac{x+3z}{2}} dydzdx\\
@@ -55,6 +83,14 @@
         Calcular su volumen.
 
         \color{azul}
+
+				El dibujo de la región sería la superposición de las regiones en el
+				intervalo en $z$ de 0 a 1.
+				\begin{center}
+            \includegraphics[width=6cm]{img/ej2_1.png}
+						\includegraphics[width=6cm]{img/ej2_2.png}
+        \end{center}
+
         \begin{align*}
             \int_{0}^{1} \int_{z^3}^{\sqrt{z}} \int_{0}^{4-x} dydxdz
                 &= \int_{0}^{1} \int_{z^3}^{\sqrt{z}} y \Big|_{0}^{4-x} dxdz
@@ -79,9 +115,17 @@
         $x = 0$ y $x = 2$.
 
         \color{azul}
-        \[
-            -x^2 + x = 0 \implies x = x^2 \implies x = 1, 0
-        \]
+				Primero hay que determinar qué límite es el superior y cual es el inferior.\\
+				Los límites en $x$ son sencillos, pues ambas cotas son constantes, por lo
+				que $x = 0$ es la cota inferior y $x = 2$ es la superior.
+				Los límites de $y$ son la función constante $y = 0$ y la función
+				$y = -x^2 + x$. Hay que determinar si  $-x^2 + x < 0 $ o $-x^2 + x > 0 $
+				en el intervalo $[0, 2]$ dado por las cotas de $x$.
+
+        \[-x^2 + x = 0 \implies x = x^2 \implies x = 1, 0\]
+
+				Entonces la función $y = -x^2 + x$ cambia de signo en 1 y en 0. Veamos
+				qué signo tiene en qué intervalo.
         \begin{align*}
             -(0.5)^2 + 0.5 = -0.25 + 0.5 & = 0.25 > 0 \\
             -(1.5)^2 + 1.5 = -2.25 + 1.5 & = -0.75 < 0
@@ -89,29 +133,37 @@
         Entones la función es positiva en $(0, 1)$ y negativa en $(1, 2]$.
 
         Por lo tanto hay que considerar dos integrales para calcular el volumen deseado.
-        \begin{align*}
-            &  \int_{0}^{1} \int_{0}^{-x^2+x} (x^2 + 2xy^2 + 2) dy dx + \int_{1}^{2} \int_{-x^2+x}^{0} (x^2 + 2xy^2 + 2) dy dx\\
-            &= \int_{0}^{1} (x^2y + \frac{2}{3}xy^3 + 2y) \Big |_{0}^{-x^2+x}dx + \int_{1}^{2} (x^2y + \frac{2}{3}xy^3 + 2y) \Big |_{-x^2+x}^{0}dx\\
-            &= \int_{0}^{1} (x^2(-x^2+x) + \frac{2}{3}x(-x^2+x)^3 + 2(-x^2+x)) - (x^2(0) + \frac{2}{3}x(0)^3 + 2(0))dx\\
-            &+ \int_{1}^{2} (x^2(0) + \frac{2}{3}x(0)^3 + 2(0)) -  (x^2(-x^2+x) + \frac{2}{3}x(-x^2+x)^3 + 2(-x^2+x))dx\\
-            &= \int_{0}^{1} (x^2(-x^2+x) + \frac{2}{3}x(-x^2+x)^3 + 2(-x^2+x))dx + \int_{1}^{2}-(x^2(-x^2+x) + \frac{2}{3}x(-x^2+x)^3 + 2(-x^2+x))dx\\
-            &= \int_{0}^{1} (-x^4+x^3 + \frac{2}{3}(-x^7 + x^6 - x^5 + x^4) - 2x^2 + 2x)dx - \int_{1}^{2} (-x^4+x^3 + \frac{2}{3}(-x^7 + x^6 - x^5 + x^4) - 2x^2 + 2x)dx\\
-            &= \int_{0}^{1} (-\frac{1}{3}x^4+x^3 + \frac{2}{3}(-x^7 + x^6 - x^5) - 2x^2 + 2x)dx - \int_{1}^{2} (-\frac{1}{3}x^4+x^3 + \frac{2}{3}(-x^7 + x^6 - x^5) - 2x^2 + 2x)dx\\
-            &= (-\frac{1}{15}x^5 + \frac{1}{4}x^4 + \frac{2}{3}(-\frac{1}{8}x^8 + \frac{1}{7}x^7 - \frac{1}{6}x^6) - \frac{2}{3}x^3 + x^2) \Big |_{0}^{1}
-            - (-\frac{1}{15}x^5 + \frac{1}{4}x^4 + \frac{2}{3}(-\frac{1}{8}x^8 + \frac{1}{7}x^7 - \frac{1}{6}x^6) - \frac{2}{3}x^3 + x^2) \Big |_{1}^{2}\\
-            &=(-\frac{1}{15} + \frac{1}{4} + \frac{2}{3}(-\frac{1}{8} + \frac{1}{7} - \frac{1}{6} - 1) + 1)
-            -  ((-\frac{1}{15}(2)^5 + \frac{1}{4}(2)^4 + \frac{2}{3}(-\frac{1}{8}(2)^8 + \frac{1}{7}(2)^7 - \frac{1}{6}(2)^6 - 2^3) + (2)^2)\\
-            &- (-\frac{1}{15} + \frac{1}{4} + \frac{2}{3}(-\frac{1}{8} + \frac{1}{7} - \frac{1}{6} - 1) + 1))\\
-            &= (\frac{15 - 4}{60} + \frac{2}{3}(\frac{-42+48-56-336}{336}) + 1)
-            -((-\frac{32}{15} + \frac{16}{4} + \frac{2}{3}(-\frac{256}{8} + \frac{128}{7} - \frac{64}{6} - 8) + 4) \\
-            &-(\frac{15 - 4}{60} + \frac{2}{3}(\frac{-42+48-56-336}{336}) + 1))\\
-            &= 2(\frac{11}{60} + \frac{2}{3} \cdot \frac{-382}{336} + 1) - (-\frac{32}{15} + 4 + \frac{2}{3}(-32 + \frac{128}{7} - \frac{32}{3} - 8) + 4)\\
-            &= 2(\frac{11}{60} - \frac{382}{504} + 1) - (-\frac{32}{15} + 8 + \frac{2}{3}(-40 + \frac{384-224}{21}))\\
-            &= 2(\frac{462 - 1910}{2520} + 1) - (-\frac{32}{15} + 8 + \frac{2}{3} \cdot \frac{160-840}{21})\\
-            &= 2(\frac{-1448 + 2520}{2520}) - (-\frac{32}{15} + 8 + \frac{2}{3} \cdot \frac{-680}{21}) = 2 \cdot \frac{1072}{2520} - (-\frac{32}{15} + 8 - \frac{1360}{63})\\
-            &= \frac{1072}{1260} - (\frac{-672-6800}{315} + 8) = \frac{1072}{1260} - (\frac{-7472+2520}{315})\\
-            &= \frac{1072}{1260} - (-\frac{4952}{315}) = \frac{1072}{1260} + \frac{4952}{315} = \frac{1072+19808}{1260} = \frac{20880}{1260} \approx 16.6
-        \end{align*}
+      	\[\int_{0}^{1} \int_{0}^{-x^2+x} (x^2 + 2xy^2 + 2) dy dx + \int_{1}^{2} \int_{-x^2+x}^{0} (x^2 + 2xy^2 + 2) dy dx\]\\
+
+				Las integrales internas serían
+				\begin{align*}
+					&\int_{0}^{-x^2+x} (x^2 + 2xy^2 + 2) dy = (x^2y + \frac{2}{3}xy^3 + 2y) \Big |_{0}^{-x^2+x} = y(x^2+\frac{2}{3}xy^2 + 2)\Big |_{0}^{-x^2+x}\\
+					&= (-x^2+x)(x^2 + \frac{2}{3}x(-x^2+x)^2+2) = x(x^2 + \frac{2}{3}(x^5-2x^4+x^3)+2) - x^2(x^2 + \frac{2}{3}(x^5-2x^4+x^3)+2)\\
+					&= (x^3 + \frac{2}{3}(x^6-2x^5+x^4)+2x) - (x^4 + \frac{2}{3}(x^7-2x^6+x^5)+2x^2)
+					= -\frac{2}{3}x^7 + \frac{6}{3}x^6 - \frac{6}{3}x^5 - \frac{1}{3}x^4 + x^3 - 2x^2 + 2x\\
+					\\
+					&\int_{-x^2+x}^{0} (x^2 + 2xy^2 + 2) dy = y(x^2+\frac{2}{3}xy^2 + 2)\Big |_{-x^2+x}^{0} = -(-x^2+x)(x^2 + \frac{2}{3}x(-x^2+x)^2+2)\\
+					&= -(-\frac{2}{3}x^7 + \frac{6}{3}x^6 - \frac{6}{3}x^5 - \frac{1}{3}x^4 + x^3 - 2x^2 + 2x)
+					= \frac{2}{3}x^7 - 2x^6 + 2x^5 + \frac{1}{3}x^4 - x^3 + 2x^2 - 2x
+				\end{align*}
+
+				Y de esto las integrales externas serían
+				\begin{align*}
+					&\int_{0}^{1} (-\frac{2}{3}x^7 + 2x^6 - 2x^5 - \frac{1}{3}x^4 + x^3 - 2x^2 + 2x) dx
+					= (-\frac{1}{12}x^8 + \frac{2}{7}x^7 - \frac{1}{3}x^6 - \frac{1}{15}x^5 + \frac{1}{4}x^4 - \frac{2}{3}x^3 + x^2) \Big |_{0}^{1}\\
+					&= - \frac{1}{12} + \frac{2}{7} - \frac{1}{3} - \frac{1}{15} + \frac{1}{4} - \frac{2}{3} + 1= \frac{27}{70}\\
+					\\
+					& \int_{1}^{2} -(\frac{2}{3}x^7 - 2x^6 + 2x^5 + \frac{1}{3}x^4 - x^3 + 2x^2 - 2x) dx
+					= -\int_{1}^{2} (\frac{2}{3}x^7 - 2x^6 + 2x^5 + \frac{1}{3}x^4 - x^3 + 2x^2 - 2x) dx\\
+					&= -(-\frac{1}{12}x^8 + \frac{2}{7}x^7 - \frac{1}{3}x^6 - \frac{1}{15}x^5 + \frac{1}{4}x^4 - \frac{2}{3}x^3 + x^2) \Big |_{1}^{2}
+					= -(-\frac{1}{12}(2)^8 + \frac{2}{7}(2)^7 - \frac{1}{3}(2)^6 - \frac{1}{15}(2)^5 + \frac{1}{4}(2)^4 - \frac{2}{3}(2)^3 + (2)^2) - \frac{27}{70})\\
+					&=-(-\frac{64}{3} + \frac{256}{7} - \frac{64}{3} - \frac{32}{15} + 4 - \frac{16}{3}+ 4 - \frac{27}{70}) = \frac{584}{105} + \frac{27}{70} = \frac{1249}{210}
+				\end{align*}
+
+				Entonces el volumen total sería $\frac{27}{70} + \frac{1249}{210} = \frac{19}{3}$
+
+
+
     }
 
 	% Ejercicio 4
